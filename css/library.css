@@ -2,11 +2,12 @@
 .content {
     display: flex;
     justify-content: space-between;
-    height: 90vh;
+    min-height: 90vh;
 }
 
 .item {
-    flex: 1;  
+    flex: 1; 
+    flex-grow: 1;
     border: 1px solid black;
     padding: 10px;   
 }
@@ -38,7 +39,10 @@ li.book-list-item.selected {
 table {
     width: 100%;
 }
-
+#book-word-details {
+    overflow: scroll;
+    
+}
 td {
     width: 50%;
 }

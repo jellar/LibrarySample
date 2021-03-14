@@ -35,8 +35,7 @@ class App
             const header = `Words in "${model.state.selectedBookTitle}" starting with "${query}"`
             this.loaderView.clearLoader();
             this.wordListView.render(model.state.search.results, header)
-        }
-
+        }       
     };
 
     selectedBook = async (goToBook, title) => {

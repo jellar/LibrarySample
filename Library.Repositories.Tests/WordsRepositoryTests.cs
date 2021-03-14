@@ -40,10 +40,17 @@ namespace Library.Repositories.Tests
         }
 
         [Test]
+        public void GetCountTest()
+        {
+            var count = _repository.GetCount("dolor");
+            Assert.AreEqual(2, count);
+        }
+
+        [Test]
         public void SearchWordCountTest()
         {
-            var words = _repository.GetWordsBySearch("dol");
-            Assert.AreEqual(4, words.Count);
+            var words = _repository.GetWordsBySearch("labor");
+            Assert.AreEqual(3, words.Count);
         }
 
         [Test]
