@@ -7,12 +7,10 @@ namespace Library.Core.Helpers
     {
         public static string StringCapitalize(this string str)
         {
-            if (str.Length == 0) return string.Empty;
-            else if (str.Length == 1)
-            {
-                return char.ToUpper(str[0]).ToString();
-            }
-            return string.Format(char.ToUpper(str[0]) + str.Substring(1));
+            if (string.IsNullOrEmpty(str)) return string.Empty;
+            return str.Length == 1
+                ? char.ToUpper(str[0]).ToString()
+                : string.Format(char.ToUpper(str[0]) + str.Substring(1));
         }
 
         public static string RemovePunctuations(this string str)

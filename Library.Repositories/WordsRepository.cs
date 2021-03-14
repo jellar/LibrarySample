@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using Library.Core.Helpers;
 using Library.Core.Models;
 
@@ -17,7 +16,7 @@ namespace Library.Repositories
 
         public List<Word> GetMostCommandWords()
         {
-            var words = _bookContent.ToLower().RemovePunctuations().SplitWords();
+            var words = GetBookContentWords();
 
             var mostCommonWords = words.GroupBy(w => w)
                 .Where(w => w.Key.Length > 4)
@@ -31,13 +30,12 @@ namespace Library.Repositories
 
             return mostCommonWords.ToList();
         }
-
         public List<Word> GetWordsBySearch(string searchWord)
         {
-            var words = _bookContent.ToLower().RemovePunctuations().SplitWords();
+            var words = GetBookContentWords();
             
             var searchWords = words.GroupBy(w => w)
-                .Where(w => searchWord.Length > 2 && w.Key.StartsWith(searchWord))
+                .Where(w => searchWord.Length > 2 && w.Key.StartsWith(searchWord.ToLower()))
                 .Select(w => new Word()
                 {
                     WordText = w.Key.StringCapitalize(),
@@ -45,11 +43,11 @@ namespace Library.Repositories
                 });
             return searchWords.ToList();
         }
-
-        public int GetCount(string word)
+        
+        private string[] GetBookContentWords()
         {
-            var words = _bookContent.ToLower().RemovePunctuations().SplitWords();
-            return words.Count(w => w==word);
+            return _bookContent.ToLower().RemovePunctuations().SplitWords();
         }
+
     }
 }

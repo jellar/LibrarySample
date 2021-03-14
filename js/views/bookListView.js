@@ -15,8 +15,7 @@
             $li.setAttribute('data-index', this._data[i]['id']);
             $li.setAttribute('data-goto', this._data[i]['id']);
             $li.setAttribute('data-title', this._data[i]['title']);
-            $li.innerHTML = this._data[i]['title'];
-            //$li.addEventListener("click", this.renderContactDetailsModule);            
+            $li.innerHTML = this._data[i]['title'];                   
             this._listEl.append($li);
         }
     }
