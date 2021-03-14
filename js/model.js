@@ -11,7 +11,7 @@
 
 export const loadBooks = async function () {
     try {
-        const res = await fetch('http://localhost:53471/api/books');
+        const res = await fetch('http://localhost:49265/api/books');
         const data = await res.json();
         console.log(data);
         state.books = data.map(b=>{
