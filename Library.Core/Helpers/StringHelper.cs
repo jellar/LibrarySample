@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Library.Core.Helpers
+﻿namespace Library.Core.Helpers
 {
-    class StringHelper
+    public static class StringHelper
     {
+        public static string StringCapitalize(this string str)
+        {
+            if (str.Length == 0) return string.Empty;
+            else if (str.Length == 1)
+            {
+                return char.ToUpper(str[0]).ToString();
+            }
+            return string.Format(char.ToUpper(str[0]) + str.Substring(1));
+        }
     }
 }

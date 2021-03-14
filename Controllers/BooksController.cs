@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Library.Repositories;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 
@@ -27,5 +30,12 @@ namespace Library.Controllers
 		The logic for these calls should largely be encapsulated in other classes. This should make it easier to Unit Test those classes
 		to validate the expected behaviour.
 		*/
+
+        public IHttpActionResult Get()
+        {
+            var repository = new BooksRepository(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Resources"));
+            var books = repository.GetBooks();
+            return Ok(books.Select(b => new { b.Id, b.Title }).ToList());
+        }
     }
 }

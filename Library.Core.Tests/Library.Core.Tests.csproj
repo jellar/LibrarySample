@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2672868E-BA3D-4A02-983F-9C5836A5A316}</ProjectGuid>
+    <ProjectGuid>{D0147F53-AF08-40DF-AF6A-7F9F61547F3D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Library.Repositories.Tests</RootNamespace>
-    <AssemblyName>Library.Repositories.Tests</AssemblyName>
+    <RootNamespace>Library.Core.Tests</RootNamespace>
+    <AssemblyName>Library.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -52,17 +52,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="StringHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordsRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Library.Repositories\Library.Repositories.csproj">
-      <Project>{9af57e6a-4974-4fcc-a90d-c63ccc59dd27}</Project>
-      <Name>Library.Repositories</Name>
+    <ProjectReference Include="..\Library.Core\Library.Core.csproj">
+      <Project>{9f1978b2-e4fe-4ec2-8c17-7af9cae10a6a}</Project>
+      <Name>Library.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

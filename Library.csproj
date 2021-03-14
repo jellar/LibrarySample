@@ -151,7 +151,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Library.Repositories\Library.Repositories.csproj">
+      <Project>{9AF57E6A-4974-4FCC-A90D-C63CCC59DD27}</Project>
+      <Name>Library.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library.Core\Library.Core.csproj">
+      <Project>{9F1978B2-E4FE-4EC2-8C17-7AF9CAE10A6A}</Project>
+      <Name>Library.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
