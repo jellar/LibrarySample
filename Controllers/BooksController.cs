@@ -1,9 +1,10 @@
-﻿using Library.Repositories;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using Library.Core.Models;
+using Library.Repositories;
 
 namespace Library.Controllers
 {
@@ -33,9 +34,31 @@ namespace Library.Controllers
 
         public IHttpActionResult Get()
         {
-            var repository = new BooksRepository(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Resources"));
-            var books = repository.GetBooks();
-            return Ok(books.Select(b => new { b.Id, b.Title }).ToList());
+	        var repository = new BooksRepository(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Resources"));
+	        var books = repository.GetBooks();
+	        return Ok(books.Select(b => new { b.Id, b.Title }).ToList());
+        }
+
+
+        public IHttpActionResult Get(int id, string query = "")
+        {
+	        var repository = new BooksRepository(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Resources"));
+
+	        var book = repository.GetBook(id);
+	        if (book == null) return NotFound();
+
+	        var wordsRepository = new WordsRepository(book.Content);
+	        var mostCommandWords = new List<Word>();
+	        if (string.IsNullOrEmpty(query))
+	        {
+		        mostCommandWords = wordsRepository.GetMostCommandWords();
+	        }
+	        else if (query.Length > 2)
+	        {
+		        mostCommandWords = wordsRepository.GetWordsBySearch(query);
+	        }
+
+	        return Ok(mostCommandWords);
         }
     }
 }

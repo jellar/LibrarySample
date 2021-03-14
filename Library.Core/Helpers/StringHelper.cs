@@ -1,4 +1,6 @@
-﻿namespace Library.Core.Helpers
+﻿using System.Text.RegularExpressions;
+
+namespace Library.Core.Helpers
 {
     public static class StringHelper
     {
@@ -10,6 +12,17 @@
                 return char.ToUpper(str[0]).ToString();
             }
             return string.Format(char.ToUpper(str[0]) + str.Substring(1));
+        }
+
+        public static string RemovePunctuations(this string str)
+        {
+            return Regex.Replace(str,  @"[\W_]", "");
+        }
+
+        public static string[] SplitWords(this string str)
+        {
+            var delimiters = new char[] { ' ', '\r', '\n' };
+            return str.Split(delimiters);
         }
     }
 }
