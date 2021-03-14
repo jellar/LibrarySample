@@ -1,4 +1,4 @@
-﻿class LoaderView {
+﻿export default class LoaderView {
     renderLoader = parent => {
         const loader = `
         <div class="loader">
@@ -15,4 +15,3 @@
         if (loader) loader.parentElement.removeChild(loader);
     };
 }
-export default new LoaderView()

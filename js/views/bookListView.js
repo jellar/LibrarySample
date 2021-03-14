@@ -1,4 +1,4 @@
-﻿class BookListView {
+﻿export default class BookListView {
     _data;
     _listEl = document.querySelector('#book-list');   
    
@@ -41,5 +41,3 @@
     }   
     
 }
-
-export default new BookListView()

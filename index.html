@@ -9,7 +9,7 @@
 <div class="content">
 
     <div class="item">
-        <div class="header">Please select a book</div>
+        <div class="header"><h2>Please select a book</h2></div>
         <ul id="book-list">
             loading...
         </ul>
@@ -22,14 +22,16 @@
             <input
                     type="text"
                     class="search__field"
-                    placeholder="search word..."
+                    placeholder="search word..." disabled
             />
-            <button class="btn search__btn">
+            <button class="btn search__btn" disabled>
                 Search
             </button>
         </form>
 
-        <div class="header" id="spanTitle"></div>
+        <div class="header">
+            <h3 id="spanTitle"></h3>
+        </div>
         <table id="book-word-details">
 
         </table>

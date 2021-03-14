@@ -1,5 +1,5 @@
 ﻿
-class WordListView {  
+export default class WordListView {  
     _tableEl = document.getElementById('book-word-details');  
     
     render(data, title) {  
@@ -23,5 +23,3 @@ class WordListView {
     }   
       
 }
-
-export default new WordListView();
