@@ -1,9 +1,39 @@
 <html>
 <head>
     <link rel="stylesheet" href="css/library.css" />
+    <base href="/">
     <script src="js/app.js" type="module"></script>
 </head>
 <body>
 <!-- Add your own html content here, and keep JS content in JS files -->
+<div class="content">
+
+    <div class="item">
+        <div class="header">Please select a book</div>
+        <ul id="book-list">
+            loading...
+        </ul>
+    </div>
+
+    <!-- book word details   -->
+    <div class="item" id="results">
+
+        <form class="search">
+            <input
+                    type="text"
+                    class="search__field"
+                    placeholder="search word..."
+            />
+            <button class="btn search__btn">
+                Search
+            </button>
+        </form>
+
+        <div class="header" id="spanTitle"></div>
+        <table id="book-word-details">
+
+        </table>
+    </div>
+</div>
 </body>
 </html>

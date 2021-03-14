@@ -130,8 +130,14 @@
   <ItemGroup>
     <Content Include="css\library.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\icons.svg" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
+    <Content Include="js\model.js" />
+    <Content Include="js\views\bookListView.js" />
+    <Content Include="js\views\loaderView.js" />
+    <Content Include="js\views\searchView.js" />
+    <Content Include="js\views\wordListView.js" />
     <Content Include="Resources\A Tale Of Two Cities.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

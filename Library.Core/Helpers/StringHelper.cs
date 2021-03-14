@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Library.Core.Helpers
 {
@@ -16,13 +17,13 @@ namespace Library.Core.Helpers
 
         public static string RemovePunctuations(this string str)
         {
-            return Regex.Replace(str,  @"[\W_]", "");
+            return Regex.Replace(str,  @"[\W_-[\s]]+", "");
         }
 
         public static string[] SplitWords(this string str)
         {
-            var delimiters = new char[] { ' ', '\r', '\n' };
-            return str.Split(delimiters);
+            var delimiters = new[] { ' ', '\r', '\n' };
+            return str.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
         }
     }
 }

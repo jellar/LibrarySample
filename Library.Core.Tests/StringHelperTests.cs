@@ -26,9 +26,9 @@ namespace Library.Core.Tests
         [Test]
         public void RemovePunctuationsTest()
         {
-            var str = @"string!-_@";
+            var str = @"string!-_@ test";
             
-            Assert.AreEqual("string", str.RemovePunctuations());
+            Assert.AreEqual("string test", str.RemovePunctuations());
         }
 
         [Test]
